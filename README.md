@@ -13,23 +13,16 @@ Welcome to the AirBnB Clone Project — a full-stack web application inspired by
 
 ---
 
+## 🖥️ Frontend
+Description of frontend roles, tools, and responsibilities...
+
+---
+
 ## 🛠️ Tech Stack
 
-**Frontend:**
 - HTML5, CSS3, JavaScript (ES6+)
 - React.js (for dynamic UI components)
 - Tailwind CSS(for styling)
-
-**Backend:**
-- Python with Flask or Node.js with Express
-- RESTful API design
-- PostgreSQL or MongoDB (for data storage)
-
-**DevOps & Tools:**
-- Git & GitHub (version control)
-- Postman (API testing)
-- Docker (for containerization)
-- Render(for deployment)
 
 ---
 
@@ -74,15 +67,16 @@ To design a seamless, intuitive, and visually appealing booking experience that 
 ### 🎨 Figma Design Properties
 
 **Color Styles:**
-- Primary: #FF5A5F (Accent Red)
-- Secondary: #00A699 (Teal)
-- Background: #F7F7F7
-- Text: #484848
+- Primary: #FF5A5F
+- Secondary: #008489
+- Background: #FFFFFF
+- Text: #222222
+- Secondary Text: #717171
 
 **Typography:**
-- Font Family: Inter, sans-serif
-- Font Weights: 400 (Regular), 600 (Semi-bold), 700 (Bold)
-- Font Sizes: 14px (body), 18px (subheading), 24px (heading)
+- Primary Font: Circular, Medium (500), 16px
+- Headings: Circular, Bold (700), 24px-32px
+- Secondary Text: Circular, Book (400), 14px
 
 **Why It Matters:**
 Identifying design properties in a mockup ensures consistency across the UI. It helps developers and designers maintain brand identity, improve readability, and streamline collaboration between design and code.
@@ -117,6 +111,133 @@ Additional components may include:
 - Booking form
 - Review section
 - Modal popups
+
+---
+
+## 🛠️ Backend
+Description of backend roles, tools, and responsibilities...
+---
+
+## 👥 Team Roles
+
+| Role                    | Description                                                                 |
+|-------------------------|-----------------------------------------------------------------------------|
+| **Backend Developer**   | Builds and maintains server-side logic, APIs, and database interactions.    |
+| **Frontend Developer**  | Designs and implements user interfaces using React and styling frameworks.  |
+| **Database Administrator (DBA)** | Manages database structure, performance, backups, and data integrity. |
+| **UI/UX Designer**      | Creates wireframes, mockups, and ensures a seamless user experience.        |
+| **QA/Test Engineer**    | Tests features, identifies bugs, and ensures system reliability.            |
+| **DevOps Engineer**     | Sets up CI/CD pipelines, manages deployment, and monitors server health.    |
+| **Product Owner**       | Defines project goals, prioritizes features, and aligns development with user needs. |
+| **Scrum Master**        | Facilitates agile ceremonies, removes blockers, and supports team productivity. |
+
+---
+
+## 🧰 Technology Stack
+
+| Technology     | Purpose                                                                 |
+|----------------|-------------------------------------------------------------------------|
+| **Django**     | A Python-based web framework used to build RESTful APIs and backend logic. |
+| **PostgreSQL** | A powerful relational database system used to store structured data.    |
+| **GraphQL**    | A query language for APIs that enables flexible and efficient data fetching. |
+| **React.js**   | A JavaScript library for building dynamic and responsive user interfaces. |
+| **Docker**     | Containerization tool used to package and deploy applications consistently. |
+| **GitHub Actions** | Automation tool for CI/CD workflows, testing, and deployment.       |
+
+---
+
+## 🗃️ Database Design
+
+### 🔑 Key Entities
+
+1. **Users**
+   - `id`, `name`, `email`, `password_hash`, `created_at`
+   - A user can own multiple properties and make multiple bookings.
+
+2. **Properties**
+   - `id`, `title`, `description`, `location`, `owner_id`
+   - Each property is owned by a user and can have multiple bookings and reviews.
+
+3. **Bookings**
+   - `id`, `user_id`, `property_id`, `start_date`, `end_date`, `status`
+   - A booking links a user to a property for a specific time period.
+
+4. **Reviews**
+   - `id`, `user_id`, `property_id`, `rating`, `comment`, `created_at`
+   - Users can leave reviews for properties they’ve booked.
+
+5. **Payments**
+   - `id`, `booking_id`, `amount`, `payment_method`, `status`, `timestamp`
+   - Each payment is tied to a booking and tracks transaction details.
+
+### 🔗 Relationships
+
+- A **user** can own many **properties**
+- A **property** can have many **bookings** and **reviews**
+- A **booking** belongs to one **user** and one **property**
+- A **payment** is linked to one **booking**
+
+---
+
+## 🧩 Feature Breakdown
+
+- **User Management**  
+  Handles registration, login, profile updates, and session control. Ensures secure access and personalized experiences.
+
+- **Property Management**  
+  Allows users to list, edit, and delete properties. Includes image uploads, amenities, and location tagging.
+
+- **Booking System**  
+  Enables users to select dates, view availability, and confirm bookings. Includes booking status and cancellation logic.
+
+- **Review System**  
+  Lets users rate and review properties after their stay. Helps build trust and transparency.
+
+- **Payment Integration**  
+  Processes secure transactions using third-party gateways. Tracks payment status and history.
+
+- **Search & Filter**  
+  Users can search properties by location, price, type, and availability. Improves discoverability and user satisfaction.
+
+---
+
+## 🔐 API Security
+
+### Key Measures
+
+- **Authentication**: Secure login using JWT or OAuth to verify user identity.
+- **Authorization**: Role-based access control to restrict sensitive operations.
+- **Rate Limiting**: Prevents abuse by limiting requests per user/IP.
+- **Input Validation**: Sanitizes user input to prevent SQL injection and XSS.
+- **HTTPS Encryption**: Ensures secure data transmission between client and server.
+
+### Why It Matters
+
+- Protects sensitive user data like passwords and payment info  
+- Prevents unauthorized access to admin or property management features  
+- Secures financial transactions and booking records  
+- Builds trust and compliance with data protection standards
+
+---
+
+## 🔄 CI/CD Pipeline
+
+### What Is CI/CD?
+
+CI/CD stands for **Continuous Integration** and **Continuous Deployment** — a development practice that automates testing, building, and deploying code changes.
+
+### Why It’s Important
+
+- Speeds up development cycles  
+- Reduces human error during deployment  
+- Ensures consistent environments across staging and production  
+- Enables rapid feedback and rollback if needed
+
+### Tools to Use
+
+- **GitHub Actions**: Automates testing and deployment workflows
+- **Docker**: Packages the app into containers for consistent deployment
+- **Render/Heroku**: Cloud platforms for hosting and scaling the app
 
 ---
 
